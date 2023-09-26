@@ -1,38 +1,67 @@
-.App {
-  text-align: center;
+.keyart,
+.keyart_layer {
+  height: 1000px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+#parallax {
+  display: block;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.keyart {
+  position: relative;
+  z-index: 10;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.keyart_layer {
+  background-position: bottom center;
+  background-size: auto 1038px;
+  background-repeat: repeat-x;
+  width: 100%;
+  position: absolute;
 }
 
-.App-link {
-  color: #61dafb;
+.keyart_layer.parallax {
+  position: fixed;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+#keyart-0 {
+  background-image: url("http://sagmayam.github.io/parallax0.png");
+  background-color: #ffaf1b;
+}
+
+#keyart-1 {
+  background-image: url("http://sagmayam.github.io/parallax1.png");
+}
+
+#keyart-2 {
+  background-image: url("http://sagmayam.github.io/parallax2.png");
+}
+
+#keyart-3 {
+  background-image: url("http://sagmayam.github.io/parallax3.png");
+}
+
+#keyart-4 {
+  background-image: url("http://sagmayam.github.io/parallax4.png");
+}
+
+#keyart-5 {
+  background-image: url("http://sagmayam.github.io/parallax5.png");
+}
+
+#keyart-6 {
+  background-image: url("http://sagmayam.github.io/parallax6.png");
+}
+
+#keyart-7 {
+  background-image: url("http://sagmayam.github.io/parallax7.png");
+}
+
+#keyart-8 {
+  background-image: url("http://sagmayam.github.io/parallax8.png");
+}
+
+#keyart-scrim {
+  background-color: #ffaf00;
+  opacity: 0;
 }
