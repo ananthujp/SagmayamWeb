@@ -7,8 +7,8 @@ function AppHome() {
     <motion.div
       // location={location}
       // key={location.pathname}
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
+      // initial={{ opacity: 0 }}
+      // animate={{ opacity: 1 }}
       // exit={{
       //   transition: { duration: 0.5, delay: 0.5, when: "afterChildren" },
       // }}

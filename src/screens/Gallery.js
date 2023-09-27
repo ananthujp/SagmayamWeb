@@ -1,3 +1,4 @@
+import { ArrowLeftOnRectangleIcon, HomeIcon } from "@heroicons/react/24/solid";
 import { motion, useScroll } from "framer-motion";
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -53,15 +54,27 @@ function Gallery() {
       }}
       className="flex bg-[#73A6FF] flex-col items-center gap-4 w-full md:h-full h-screen"
     >
-      <motion.h1
-        exit={{ opacity: [1, 0.5, 0] }}
-        className={
-          " text-left	mb-4  font-mont mt-4  font-extrabold text-transparent text-6xl bg-clip-text bg-gradient-to-r from-slate-50 to-slate-200 " +
-          (scrollY.get() > 10 && " hidden")
-        }
+      <motion.div
+        exit={{ opacity: 0 }}
+        className="flex flex-row md:max-w-2xl lg:max-w-4xl  max-w-md items-center w-full  justify-between "
       >
-        Gallery
-      </motion.h1>
+        <HomeIcon
+          onClick={() => navigate(-1)}
+          className="w-8 cursor-pointer hover:text-green-400  text-white"
+        />
+        <motion.h1
+          exit={{ opacity: 0 }}
+          className={
+            " text-left	mb-4  font-mont mt-4  font-extrabold text-transparent text-4xl md:text-6xl bg-clip-text bg-gradient-to-r from-slate-50 to-slate-200 "
+          }
+        >
+          Gallery
+        </motion.h1>
+        <ArrowLeftOnRectangleIcon
+          onClick={() => navigate(-1)}
+          className="w-8 cursor-pointer hover:text-red-400  text-white"
+        />
+      </motion.div>
       {Data.map((item, j) => (
         <motion.div
           key={`image.gallery.${j}`}
@@ -82,7 +95,7 @@ function Gallery() {
                     opacity: [1, 1, 1, 1, 1, 0.7],
                     transition: { delay: 0.4, duration: 1 },
                   }
-                : { opacity: [1, 0.2, 0] }
+                : { opacity: 0, transition: { delay: 0.4, duration: 0.2 } }
             }
             className="flex items-center justify-center w-full md:h-64 h-32 bg-gradient-to-br from-slate-800 to-slate-500 shadow-xl"
           >
@@ -103,10 +116,14 @@ function Gallery() {
                     opacity: 1,
                     transition: { duration: 0.8, delay: i * 0.4 },
                   }}
-                  exit={{
-                    opacity: 0,
-                    transition: { duration: 0.8, delay: i * 0.4 },
-                  }}
+                  exit={
+                    gal === j
+                      ? { opacity: 1 }
+                      : {
+                          opacity: 0,
+                          transition: { duration: 0.8, delay: i * 0.1 },
+                        }
+                  }
                   className="h-3/4 aspect-square object-cover filter saturate-[60%]"
                   src={item2}
                   alt=""

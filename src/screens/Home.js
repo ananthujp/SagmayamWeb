@@ -110,7 +110,7 @@ function Home() {
               opacity: 0,
               transition: { ease: "easeIn", duration: 0.3 },
             }}
-            className="absolute z-50 border h-[90%] w-[90%] border-white p-2 drop-shadow-xl shadow-black bg-transparent left-0 top-0 bottom-0 my-auto right-0 mx-auto"
+            className="absolute z-50 overflow-y-auto border h-[90%] w-[90%] border-white p-2 drop-shadow-xl shadow-black bg-transparent left-0 top-0 bottom-0 my-auto right-0 mx-auto"
           >
             <XCircleIcon
               onClick={() => setView(null)}
@@ -121,6 +121,18 @@ function Home() {
               <h1 className="font-mont text-2xl font-bold border-x-4 px-4 border-red-400 ">
                 {slider[view].label}
               </h1>
+              <img
+                src={slider[view].img}
+                alt=""
+                className="w-full mt-6 mb-3 rounded-md border border-dashed border-gray-400 p-2"
+              />
+              <div className="flex flex-row ml-0 mr-auto">
+                {slider[view].hash.map((item) => (
+                  <h1 className="text-sm -mt-1 font-light bg-gray-100 rounded-sm p-0.5 border border-dashed border-slate-300 mr-2">
+                    {item}&nbsp;
+                  </h1>
+                ))}
+              </div>
             </div>
           </motion.div>
         )}
