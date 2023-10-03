@@ -3,6 +3,7 @@ import boat from "../images/boat.svg";
 import logo from "../images/sagmayam-logo.svg";
 import wave from "../images/wave.svg";
 import HomeCard from "../components/HomeCard";
+import Boat from "../images/Svg";
 import {
   InformationCircleIcon,
   PhotoIcon,
@@ -142,7 +143,7 @@ function Home() {
         initial={{ height: "0%", backgroundColor: "#FFD07D" }}
         animate={{
           height: "66.66%",
-          backgroundColor: "#FFD07D",
+          //backgroundColor: "#FFD07D",
           transition: { duration: 0.8 },
         }}
         exit={{
@@ -152,10 +153,10 @@ function Home() {
         }}
         className="relative w-full h-4/6 flex"
       >
-        <div className="flex flex-row mx-4 w-full items-center justify-between">
+        <div className="flex flex-row mx-4 bg-[#FFD07D] w-full items-center justify-between">
           <div>
             {menu_right.map((item, i) => (
-              <Link to={item.link}>
+              <Link key={`menu.right.${i}`} to={item.link}>
                 <motion.div
                   initial={{ opacity: 0, translateX: -50 }}
                   animate={{
@@ -171,14 +172,14 @@ function Home() {
                   className="text-white transform transition-all translate-x-0 hover:translate-x-0.5 group flex flex-row items-center justify-end gap-2 font-mont pl-2 border-l-2 cursor-pointer"
                 >
                   {item.ico}
-                  <text className="hidden group-hover:flex">{item.label}</text>
+                  <h1 className="hidden group-hover:flex">{item.label}</h1>
                 </motion.div>
               </Link>
             ))}
           </div>
           <div className="flex flex-col gap-4 text-right">
             {menu_left.map((item, i) => (
-              <Link to={item.link}>
+              <Link key={`menu.left.${i}`} to={item.link}>
                 <motion.div
                   initial={{ opacity: 0, translateX: 50 }}
                   animate={{
@@ -193,7 +194,7 @@ function Home() {
                   }}
                   className="text-white transform transition-all translate-x-0 hover:translate-x-0.5 group flex flex-row items-center justify-end gap-2 font-mont pr-2 border-r-2 cursor-pointer"
                 >
-                  <text className="hidden group-hover:flex">{item.label}</text>
+                  <h1 className="hidden group-hover:flex">{item.label}</h1>
                   {item.ico}
                 </motion.div>
               </Link>
@@ -255,7 +256,7 @@ function Home() {
             },
           }}
         >
-          <motion.img
+          <motion.div
             animate={{
               x: [0, 25, 0],
               transition: {
@@ -266,9 +267,11 @@ function Home() {
               },
             }}
             className="w-2/4 mx-auto"
-            src={boat}
-            alt=""
-          />
+            // src={boat}
+            // alt=""
+          >
+            <Boat />
+          </motion.div>
         </motion.div>
       </motion.div>
       <motion.div

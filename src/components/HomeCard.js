@@ -17,8 +17,10 @@ function HomeCard({ label, img, hash, i, view }) {
         <div className="flex flex-col">
           <h1>{label.substring(1)}</h1>
           <div className="flex flex-row">
-            {hash.map((item) => (
-              <h1 className="text-xs -mt-1 font-thin">{item}&nbsp;</h1>
+            {hash.map((item, j) => (
+              <h1 key={`hash${i}.${j}`} className="text-xs -mt-1 font-thin">
+                {item}&nbsp;
+              </h1>
             ))}
           </div>
         </div>
