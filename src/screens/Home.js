@@ -47,6 +47,7 @@ function Home() {
           label: item.data().label,
           img: item.data().img,
           hash: item.data().hash,
+          text: item.data().text,
         }))
       )
     );
@@ -147,6 +148,9 @@ function Home() {
                   </h1>
                 ))}
               </div>
+              <h1 className="text-justify font-mont ml-0 mr-auto">
+                {slide[view].text}
+              </h1>
             </div>
           </motion.div>
         )}

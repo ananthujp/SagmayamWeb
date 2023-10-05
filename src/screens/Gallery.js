@@ -24,7 +24,7 @@ function Gallery() {
     );
   }, []);
   useEffect(() => {
-    gal !== null && navigate("gallery-view");
+    gal !== null && navigate(`gallery-view/${galleryData[gal].id}`);
   }, [gal]);
   const Data = [
     {

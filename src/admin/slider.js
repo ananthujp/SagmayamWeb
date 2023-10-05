@@ -21,10 +21,13 @@ import {
 } from "firebase/firestore";
 import { db } from "../firebase";
 import { BackButton, HomeButton } from "../Nav/buttons";
+import Admin from "./admin";
+import useReducer from "../Context";
 function Slider() {
   const [slide, setSlider] = useState();
   const [form, setForm] = useState();
   const [additem, setAddItem] = useState(false);
+  const { login } = useReducer();
   const delItem = (id) => {
     const response = window.confirm("Are you sure you want to delete?");
     response && deleteDoc(doc(db, "slider", id));
@@ -72,8 +75,9 @@ function Slider() {
         }))
       )
     );
+    console.log(login);
   }, []);
-  return (
+  return login ? (
     <motion.div className="relative flex items-center flex-col bg-white w-full h-screen">
       {["bg-green-400", "bg-red-400", "bg-[#73A6FF]"].map((item, i, arr) => (
         <motion.div
@@ -141,40 +145,40 @@ function Slider() {
         </div>
         {additem && (
           <div className="flex flex-col pt-4 w-full border-b border-x border-green-400 gap-3 items-center justify-center">
-            <div className="grid-col-1 items-center gap-2">
+            <div className="grid-col-1 w-2/3 items-center gap-2">
               <h1 className="text-slate-600 text-sm">Label : </h1>
               <input
                 value={form?.label}
                 onChange={(e) => setForm({ ...form, label: e.target.value })}
-                className=" decoration-indigo-400 bg-indigo-100 border-indigo-500 px-2 py-1 rounded-md "
+                className=" w-2/3 decoration-indigo-400 bg-indigo-100 border-indigo-500 px-2 py-1 rounded-md "
                 type="text"
               />
             </div>
-            <div className="grid-col-1 items-center gap-2">
+            <div className="grid-col-1 w-2/3 items-center gap-2">
               <h1 className="text-slate-600 text-sm">
                 Hashtags (Sep. by commas ) :
               </h1>
               <input
                 value={form?.hash}
                 onChange={(e) => setForm({ ...form, hash: e.target.value })}
-                className=" decoration-indigo-400 bg-indigo-100 border-indigo-500 px-2 py-1 rounded-md "
+                className=" w-2/3 decoration-indigo-400 bg-indigo-100 border-indigo-500 px-2 py-1 rounded-md "
                 type="email"
               />
             </div>
-            <div className="grid-col-1 items-center gap-2">
+            <div className="grid-col-1 w-2/3 items-center gap-2">
               <h1 className="text-slate-600 text-sm">Image URL : </h1>
               <input
                 value={form?.img}
                 onChange={(e) => setForm({ ...form, img: e.target.value })}
-                className=" decoration-indigo-400 bg-indigo-100 border-indigo-500 px-2 py-1 rounded-md "
+                className=" w-2/3 decoration-indigo-400 bg-indigo-100 border-indigo-500 px-2 py-1 rounded-md "
               />
             </div>
-            <div className="grid-col-1 items-center gap-2">
+            <div className="grid-col-1 w-2/3 items-center gap-2">
               <h1 className="text-slate-600 text-sm">Text: </h1>
               <textarea
                 value={form?.text}
                 onChange={(e) => setForm({ ...form, text: e.target.value })}
-                className=" decoration-indigo-400 bg-indigo-100 border-indigo-500 px-2 py-1 rounded-md "
+                className=" w-2/3 decoration-indigo-400 bg-indigo-100 border-indigo-500 px-2 py-1 rounded-md "
                 type="number"
               />
             </div>
@@ -195,6 +199,8 @@ function Slider() {
         </h1>
       </div>
     </motion.div>
+  ) : (
+    <Admin />
   );
 }
 

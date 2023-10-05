@@ -5,7 +5,7 @@ export const HomeButton = () => {
   const navigate = useNavigate();
   return (
     <HomeIcon
-      onClick={() => navigate(-1)}
+      onClick={() => navigate("/")}
       className="w-8 cursor-pointer hover:text-green-400  text-[#6f9e27]"
     />
   );

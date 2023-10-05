@@ -31,10 +31,13 @@ import {
   DesktopDateTimePicker,
   StaticDateTimePicker,
 } from "@mui/x-date-pickers";
+import Admin from "./admin";
+import useReducer from "../Context";
 function GalleryConsole() {
   const [slide, setSlider] = useState();
   const [form, setForm] = useState();
   const [additem, setAddItem] = useState(false);
+  const { login } = useReducer();
   const addImg = () => {
     form?.photos
       ? setForm((prevData) => ({
@@ -100,7 +103,7 @@ function GalleryConsole() {
       )
     );
   }, []);
-  return (
+  return login ? (
     <motion.div className="relative flex items-center flex-col bg-white w-full h-screen">
       {["bg-green-400", "bg-red-400", "bg-[#73A6FF]"].map((item, i, arr) => (
         <motion.div
@@ -254,6 +257,8 @@ function GalleryConsole() {
         </h1>
       </div>
     </motion.div>
+  ) : (
+    <Admin />
   );
 }
 
