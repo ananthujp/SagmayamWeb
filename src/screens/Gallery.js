@@ -2,11 +2,27 @@ import { ArrowLeftOnRectangleIcon, HomeIcon } from "@heroicons/react/24/solid";
 import { motion, useScroll } from "framer-motion";
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { BackButton, HomeButton } from "../Nav/buttons";
+import { collection, getDocs } from "firebase/firestore";
+import { db } from "../firebase";
 
 function Gallery() {
   const [gal, setGal] = useState(null);
+  const [galleryData, setGalData] = useState(null);
   const navigate = useNavigate();
   const { scrollY } = useScroll();
+  useEffect(() => {
+    getDocs(collection(db, "gallery")).then((items) =>
+      setGalData(
+        items.docs.map((item) => ({
+          id: item.id,
+          title: item.data().name,
+          time: item.data().date,
+          photos: item.data().photos,
+        }))
+      )
+    );
+  }, []);
   useEffect(() => {
     gal !== null && navigate("gallery-view");
   }, [gal]);
@@ -58,10 +74,7 @@ function Gallery() {
         exit={{ opacity: 0 }}
         className="flex flex-row md:max-w-2xl lg:max-w-4xl  max-w-md items-center w-full  justify-between "
       >
-        <HomeIcon
-          onClick={() => navigate(-1)}
-          className="w-8 cursor-pointer hover:text-green-400  text-white"
-        />
+        <HomeButton />
         <motion.h1
           exit={{ opacity: 0 }}
           className={
@@ -70,12 +83,9 @@ function Gallery() {
         >
           Gallery
         </motion.h1>
-        <ArrowLeftOnRectangleIcon
-          onClick={() => navigate(-1)}
-          className="w-8 cursor-pointer hover:text-red-400  text-white"
-        />
+        <BackButton />
       </motion.div>
-      {Data.map((item, j) => (
+      {galleryData?.map((item, j) => (
         <motion.div
           key={`image.gallery.${j}`}
           initial={{ maxWidth: "42rem" }}
@@ -109,7 +119,7 @@ function Gallery() {
                   View all
                 </h1>
               </motion.div>
-              {item.images.map((item2, i) => (
+              {item.photos?.slice(0, 3).map((item2, i) => (
                 <motion.img
                   initial={{ opacity: 0 }}
                   animate={{

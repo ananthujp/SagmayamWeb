@@ -4,6 +4,7 @@ import { SlideshowLightbox } from "lightbox.js-react";
 import "lightbox.js-react/dist/index.css";
 import { ArrowLeftOnRectangleIcon, HomeIcon } from "@heroicons/react/24/solid";
 import { useNavigate } from "react-router-dom";
+import { BackButton, HomeButton } from "../Nav/buttons";
 
 function GalleryView() {
   const images = [
@@ -18,18 +19,12 @@ function GalleryView() {
   return (
     <div className="flex flex-col w-full h-screen items-center justify-start">
       <div className="flex flex-row items-center w-[90%] justify-between ">
-        <HomeIcon
-          onClick={() => navigate("/")}
-          className="w-8 cursor-pointer hover:text-green-400  text-[#6f9e27]"
-        />
+        <HomeButton />
         <div className="flex flex-col items-center ">
           <h1 className="mt-4 text-sm font-black font-mont">Gallery</h1>
           <h1 className="mb-4 text-4xl font-black font-mont">Onam 2023</h1>
         </div>
-        <ArrowLeftOnRectangleIcon
-          onClick={() => navigate(-1)}
-          className="w-8 cursor-pointer hover:text-red-400  text-[#ca1c25]"
-        />
+        <BackButton />
       </div>
       <SlideshowLightbox
         showThumbnails

@@ -7,7 +7,7 @@ function LogoSVG({ loadi, setad }) {
   const [load, setLoad] = useState(loadi);
   const teeth = {
     fade: {
-      opacity: [0.8, 0.5],
+      opacity: [0, 1, 0],
       transition: { ease: "easeInOut", duration: 3, repeat: Infinity },
     },
   };
@@ -24,21 +24,21 @@ function LogoSVG({ loadi, setad }) {
       pathLength: [0, 1],
       strokeWidth: [3, 3, 0],
 
-      fill: ["#000000", "#000000", "#bd1013"],
+      fill: ["#000000", "#210002", "#bd1013"],
       transition: { duration: 3 },
     },
   };
 
   useEffect(() => {
-    setTimeout(() => setLoad(true), 3000);
-    setTimeout(() => setad(true), 6400);
+    setTimeout(() => setLoad(true), 4000);
+    setTimeout(() => setad(true), 7400);
   }, []);
   return (
     <AnimatePresence>
       {!loadi ? (
         <motion.div
           className="w-full h-screen"
-          initial={{ opacity: 1 }}
+          initial={{ opacity: 1, backgroundColor: "#210002" }}
           animate={
             load
               ? {
@@ -155,22 +155,33 @@ function LogoSVG({ loadi, setad }) {
                       ? {
                           rotateZ: 0,
                           transition: {
-                            duration: 3,
+                            duration: 2,
                           },
                         }
                       : {
                           rotateZ: [0, 180, 360],
                           transition: {
                             ease: [0.17, 0.67, 0.83, 0.67],
-                            duration: 3,
+                            duration: 7,
                             repeat: Infinity,
                           },
                         }
                   }
                 >
                   <motion.path
-                    animate="fade"
-                    variants={teeth}
+                    animate={
+                      load
+                        ? { opacity: 1 }
+                        : {
+                            opacity: [0, 1, 0],
+                            transition: {
+                              ease: "easeInOut",
+                              duration: 1.5,
+                              repeat: Infinity,
+                              delay: 0.2 * 0,
+                            },
+                          }
+                    }
                     id="_x3C_Path_x3E__00000183942034927676748790000010657856904569594531_"
                     d="M357.1 276.8c2.9 41.9-25.7 77.9-70.4 81.6-13.2 1.1-25.8-1.1-37-5.9l18.7-45.3c4.4 2.1 9.6 2.9 15.2 2.4 15.4-1.4 26.5-14.5 25.4-29.9-.8-10.7-9-20.5-19.2-24.2l18.5-44.8c26.5 10 46.5 33.8 48.8 66.1z"
                     style={{
@@ -178,106 +189,271 @@ function LogoSVG({ loadi, setad }) {
                     }}
                   />
                   <motion.path
-                    animate="fade"
-                    variants={teeth}
+                    animate={
+                      load
+                        ? { opacity: 1 }
+                        : {
+                            opacity: [0, 1, 0],
+                            transition: {
+                              ease: "easeInOut",
+                              duration: 1.5,
+                              repeat: Infinity,
+                              delay: 0.2 * 1,
+                            },
+                          }
+                    }
                     id="_x3C_Path_x3E__00000045591467389057702080000014114628986899122593_"
                     d="M369 80.3c4.2 1.8 8.6 3.2 12.6 5.3 6.9 3.6 8.4 8.2 4.2 14.8-8.9 14.3-18.1 28.3-27.5 42.4-3.9 5.8-7.9 6.6-14.6 4.2-1.4-.6-2.6-1.1-3.9-1.6-9.1-4-10.6-6.3-8.5-16.4 2.6-12.7 5.4-25.4 8.4-38 4.8-20.1 5.9-20.6 25.5-12.3 1.3.5 2.6 1 3.9 1.6 0-.1 0-.1-.1 0z"
                     className="st10"
                   />
                   <motion.path
-                    animate="fade"
-                    variants={teeth}
+                    animate={
+                      load
+                        ? { opacity: 1 }
+                        : {
+                            opacity: [0, 1, 0],
+                            transition: {
+                              ease: "easeInOut",
+                              duration: 1.5,
+                              repeat: Infinity,
+                              delay: 0.2 * 2,
+                            },
+                          }
+                    }
                     id="_x3C_Path_x3E__00000114761089739752175830000001623618437834319531_"
                     d="M445.5 134.6c3 3.4 6.3 6.7 9 10.3 4.6 6.3 3.9 11.1-2.7 15.2-14.2 9-28.7 17.5-43.3 26-6.1 3.5-10 2.5-15-2.6-1-1.1-1.9-2.1-2.8-3.2-6.4-7.6-6.8-10.3-.5-18.5 7.9-10.2 16-20.4 24.2-30.5 13.1-16 14.3-15.9 28.4.1.9.9 1.8 2 2.7 3.2 0-.1 0-.1 0 0z"
                     className="st10"
                   />
                   <motion.path
-                    animate="fade"
-                    variants={teeth}
+                    animate={
+                      load
+                        ? { opacity: 1 }
+                        : {
+                            opacity: [0, 1, 0],
+                            transition: {
+                              ease: "easeInOut",
+                              duration: 1.5,
+                              repeat: Infinity,
+                              delay: 0.2 * 3,
+                            },
+                          }
+                    }
                     id="_x3C_Path_x3E__00000042014721051241690420000004315515570095905426_"
                     d="M490 212c1.4 4.4 3 8.7 4 13 1.6 7.6-.9 11.7-8.7 12.8-16.7 2.4-33.3 4.4-50.2 6.1-7 .8-10.1-1.8-12.6-8.5-.4-1.4-.9-2.7-1.3-4-2.8-9.6-2-12.2 7.1-17.1 11.4-6.1 22.9-12.1 34.5-18 18.5-9.3 19.6-8.7 25.9 11.6.5 1.3.9 2.6 1.3 4 .1 0 0 0 0 .1z"
                     className="st10"
                   />
                   <motion.path
-                    animate="fade"
-                    variants={teeth}
+                    animate={
+                      load
+                        ? { opacity: 1 }
+                        : {
+                            opacity: [0, 1, 0],
+                            transition: {
+                              ease: "easeInOut",
+                              duration: 1.5,
+                              repeat: Infinity,
+                              delay: 0.2 * 4,
+                            },
+                          }
+                    }
                     id="_x3C_Path_x3E__00000119838165868759819690000006387610354650060703_"
                     d="M500.8 301.2c-.5 4.6-.6 9.2-1.4 13.6-1.5 7.6-5.5 10.4-13 8.4-16.3-4.3-32.4-9-48.5-14-6.7-2-8.6-5.6-8.3-12.7.1-1.5.3-2.9.4-4.2 1.2-9.9 3-12 13.2-12.9 12.9-1.2 25.8-2.2 38.8-3 20.7-1.3 21.4-.3 19.2 20.8-.1 1.4-.2 2.8-.4 4.2.1-.2 0-.2 0-.2z"
                     className="st10"
                   />
                   <motion.path
-                    animate="fade"
-                    variants={teeth}
+                    animate={
+                      load
+                        ? { opacity: 1 }
+                        : {
+                            opacity: [0, 1, 0],
+                            transition: {
+                              ease: "easeInOut",
+                              duration: 1.5,
+                              repeat: Infinity,
+                              delay: 0.2 * 5,
+                            },
+                          }
+                    }
                     id="_x3C_Path_x3E__00000165918301168302629810000000076340163549809538_"
                     d="M473.9 390.6c-2.2 4-4.1 8.2-6.6 11.9-4.4 6.4-9.1 7.4-15.2 2.6-13.3-10.3-26.2-21-39.2-31.9-5.4-4.5-5.7-8.5-2.6-15 .7-1.3 1.4-2.5 2-3.7 5-8.6 7.4-9.9 17.2-6.7 12.3 4 24.6 8.1 36.9 12.4 19.5 6.9 19.8 8.1 9.5 26.7-.5 1.3-1.1 2.5-2 3.7.1.1.1 0 0 0z"
                     className="st10"
                   />
                   <motion.path
-                    animate="fade"
-                    variants={teeth}
+                    animate={
+                      load
+                        ? { opacity: 1 }
+                        : {
+                            opacity: [0, 1, 0],
+                            transition: {
+                              ease: "easeInOut",
+                              duration: 1.5,
+                              repeat: Infinity,
+                              delay: 0.2 * 6,
+                            },
+                          }
+                    }
                     id="_x3C_Path_x3E__00000044156397219732293740000015013411680148879249_"
                     d="M405.8 465.5c-3.8 2.6-7.4 5.4-11.3 7.6-6.8 3.7-11.5 2.4-14.7-4.6-7.1-15.3-13.7-30.7-20.3-46.3-2.7-6.5-1.2-10.2 4.5-14.5 1.2-.8 2.4-1.6 3.5-2.4 8.4-5.4 11.1-5.4 18.4 1.9 9.1 9.2 18.2 18.5 27.2 27.9 14.2 15.1 14 16.2-3.7 28.1-1.2.8-2.3 1.6-3.6 2.3 0 .1 0 0 0 0z"
                     className="st10"
                   />
                   <motion.path
-                    animate="fade"
-                    variants={teeth}
+                    animate={
+                      load
+                        ? { opacity: 1 }
+                        : {
+                            opacity: [0, 1, 0],
+                            transition: {
+                              ease: "easeInOut",
+                              duration: 1.5,
+                              repeat: Infinity,
+                              delay: 0.2 * 7,
+                            },
+                          }
+                    }
                     id="_x3C_Path_x3E__00000168818661939107767450000004702565562121685408_"
                     d="M191.7 78.9c4.2-1.9 8.2-4.1 12.4-5.6 7.3-2.5 11.7-.5 13.7 7.1 4.4 16.3 8.4 32.6 12.1 49 1.6 6.8-.5 10.3-6.9 13.5-1.4.6-2.6 1.2-3.9 1.8-9.2 3.9-11.9 3.4-17.8-5-7.5-10.6-14.8-21.3-22.1-32.1-11.5-17.2-11-18.4 8.4-27.1 1.2-.6 2.5-1.2 3.9-1.8.2.1.2.2.2.2z"
                     className="st10"
                   />
                   <motion.path
-                    animate="fade"
-                    variants={teeth}
+                    animate={
+                      load
+                        ? { opacity: 1 }
+                        : {
+                            opacity: [0, 1, 0],
+                            transition: {
+                              ease: "easeInOut",
+                              duration: 1.5,
+                              repeat: Infinity,
+                              delay: 0.2 * 8,
+                            },
+                          }
+                    }
                     id="_x3C_Path_x3E__00000023962198463725723370000013873644523894411159_"
                     d="M115.9 133.5c3-3.4 5.8-7.1 9-10.2 5.7-5.3 10.5-5.2 15.4.8 10.7 13 21 26.3 31.2 39.7 4.3 5.6 3.7 9.6-.7 15.2-1 1.1-1.9 2.2-2.8 3.2-6.7 7.3-9.4 8-18.3 2.8-11.1-6.6-22.2-13.3-33.3-20.2-17.5-11-17.6-12.2-3.4-28.2.9-1.1 1.9-2.1 2.9-3.1-.1-.1 0 0 0 0z"
                     className="st10"
                   />
                   <motion.path
-                    animate="fade"
-                    variants={teeth}
+                    animate={
+                      load
+                        ? { opacity: 1 }
+                        : {
+                            opacity: [0, 1, 0],
+                            transition: {
+                              ease: "easeInOut",
+                              duration: 1.5,
+                              repeat: Infinity,
+                              delay: 0.2 * 9,
+                            },
+                          }
+                    }
                     id="_x3C_Path_x3E__00000051363164279170219620000007154505262113138579_"
                     d="M68.6 213.7c1.4-4.4 2.4-8.9 4.1-13 3-7.2 7.4-9.1 14.4-5.6 15.1 7.5 29.9 15.4 44.7 23.5 6.2 3.3 7.3 7.2 5.6 14.1-.4 1.4-.8 2.7-1.2 4.1-3.1 9.4-5.3 11.2-15.6 10-12.9-1.4-25.8-3-38.6-4.8-20.5-2.9-21-4-14.7-24.3.4-1.3.8-2.7 1.2-4.1 0 .1.1.1.1.1z"
                     className="st10"
                   />
                   <motion.path
-                    animate="fade"
-                    variants={teeth}
+                    animate={
+                      load
+                        ? { opacity: 1 }
+                        : {
+                            opacity: [0, 1, 0],
+                            transition: {
+                              ease: "easeInOut",
+                              duration: 1.5,
+                              repeat: Infinity,
+                              delay: 0.2 * 10,
+                            },
+                          }
+                    }
                     id="_x3C_Path_x3E__00000094580964265228386450000007957975263136449457_"
                     d="M59 304.3c-.4-4.6-1.1-9.1-1.2-13.6 0-7.8 3.4-11.2 11.2-10.6 16.8 1.2 33.5 2.8 50.3 4.7 7 .7 9.5 3.9 10.5 11 .1 1.5.3 2.9.4 4.2.7 9.9-.7 12.3-10.6 15.2-12.4 3.6-25 7-37.6 10.3-20 5.1-21 4.4-22.8-16.9-.2-1.4-.3-2.8-.4-4.2.1-.1.1-.1.2-.1z"
                     className="st10"
                   />
                   <motion.path
-                    animate="fade"
-                    variants={teeth}
+                    animate={
+                      load
+                        ? { opacity: 1 }
+                        : {
+                            opacity: [0, 1, 0],
+                            transition: {
+                              ease: "easeInOut",
+                              duration: 1.5,
+                              repeat: Infinity,
+                              delay: 0.2 * 11,
+                            },
+                          }
+                    }
                     id="_x3C_Path_x3E__00000047023646970265689470000001506331067001987492_"
                     d="M88.8 393.5c-2.4-3.9-5.1-7.7-7.1-11.6-3.4-7-1.9-11.6 5.3-14.5 15.6-6.4 31.3-12.4 47.1-18.2 6.6-2.5 10.3-.8 14.3 5.1.8 1.3 1.5 2.4 2.2 3.6 5 8.6 4.9 11.3-2.7 18.3-9.6 8.7-19.3 17.4-29.1 25.9-15.7 13.5-16.8 13.2-27.9-5-.8-1.2-1.5-2.4-2.2-3.6h.1z"
                     className="st10"
                   />
                   <motion.path
-                    animate="fade"
-                    variants={teeth}
+                    animate={
+                      load
+                        ? { opacity: 1 }
+                        : {
+                            opacity: [0, 1, 0],
+                            transition: {
+                              ease: "easeInOut",
+                              duration: 1.5,
+                              repeat: Infinity,
+                              delay: 0.2 * 12,
+                            },
+                          }
+                    }
                     id="_x3C_Path_x3E__00000048463593267597662720000014596602135555538310_"
                     d="M150.7 462c-3.7-2.6-7.7-5-11.1-7.9-5.9-5-6.4-9.9-.9-15.4 11.7-12.1 23.8-23.8 36.1-35.4 5.1-4.9 9.1-4.8 15.2-1 1.2.9 2.3 1.6 3.5 2.4 8 5.9 9 8.5 4.8 17.9-5.3 11.8-10.8 23.6-16.4 35.3-9 18.6-10.2 18.8-27.6 6.5-1.3-.7-2.5-1.5-3.6-2.4 0 .1 0 0 0 0z"
                     className="st10"
                   />
                   <motion.path
-                    animate="fade"
-                    variants={teeth}
+                    animate={
+                      load
+                        ? { opacity: 1 }
+                        : {
+                            opacity: [0, 1, 0],
+                            transition: {
+                              ease: "easeInOut",
+                              duration: 1.5,
+                              repeat: Infinity,
+                              delay: 0.2 * 13,
+                            },
+                          }
+                    }
                     id="_x3C_Path_x3E__00000119095303852032240280000006966616344473983401_"
                     d="M281.7 60c4.6 0 9.2-.3 13.6.1 7.7.7 10.9 4.4 9.5 12.1-2.7 16.6-5.9 33.1-9.3 49.7-1.4 6.9-4.8 9.1-11.9 9.5h-4.2c-9.9-.2-12.2-1.8-14.1-11.9-2.4-12.7-4.6-25.5-6.7-38.4-3.3-20.4-2.4-21.3 18.9-21.1h4.2c0-.1 0-.1 0 0z"
                     className="st10"
                   />
                   <motion.path
-                    animate="fade"
-                    variants={teeth}
+                    animate={
+                      load
+                        ? { opacity: 1 }
+                        : {
+                            opacity: [0, 1, 0],
+                            transition: {
+                              ease: "easeInOut",
+                              duration: 1.5,
+                              repeat: Infinity,
+                              delay: 0.2 * 14,
+                            },
+                          }
+                    }
                     id="_x3C_Path_x3E__00000109027071704643440980000012771630242377367428_"
                     d="M325.7 501.5c-4.5.8-9 2-13.4 2.5-7.7.7-11.5-2.3-11.7-10.1-.5-16.8-.5-33.6-.3-50.5 0-7 2.9-9.9 9.9-11.6 1.5-.3 2.8-.5 4.2-.8 9.8-1.7 12.3-.6 16.2 9 4.8 12 9.4 24.2 13.9 36.4 7.1 19.4 6.4 20.4-14.5 24.4-1.3.3-2.7.6-4.2.8-.1 0-.1 0-.1-.1z"
                     className="st10"
                   />
                   <motion.path
-                    animate="fade"
-                    variants={teeth}
+                    animate={
+                      load
+                        ? { opacity: 1 }
+                        : {
+                            opacity: [0, 1, 0],
+                            transition: {
+                              ease: "easeInOut",
+                              duration: 1.5,
+                              repeat: Infinity,
+                              delay: 0.2 * 15,
+                            },
+                          }
+                    }
                     id="_x3C_Path_x3E__00000153675955149452370830000013201482438590637756_"
                     d="M231 498.8c-4.4-1.3-8.9-2.3-13.1-3.9-7.2-2.9-9.2-7.3-5.8-14.3 7.3-15.2 14.9-30.1 22.8-45.1 3.2-6.2 7.1-7.4 14.1-5.8 1.4.4 2.7.8 4.1 1.2 9.5 3 11.2 5.1 10.3 15.4-1.2 12.9-2.6 25.8-4.2 38.7-2.6 20.5-3.6 21.1-24.1 15-1.3-.3-2.7-.7-4.1-1.2 0 .1 0 .1 0 0z"
                     className="st10"
@@ -292,7 +468,8 @@ function LogoSVG({ loadi, setad }) {
                           scale: 1,
                           translateY: [-230, 0],
                           transition: {
-                            duration: 2,
+                            ease: "easeIn",
+                            duration: 1,
                           },
                         }
                       : {

@@ -6,6 +6,8 @@ import About from "./screens/About";
 import { useState } from "react";
 import LogoSVG from "./images/LogoSVG";
 import Home from "./screens/Home";
+import Slider from "./admin/slider";
+import GalleryConsole from "./admin/gallery";
 function App() {
   const [load, setLaad] = useState(false);
 
@@ -25,6 +27,8 @@ function App() {
         />
         <Route path="gallery" element={<Gallery />} />
         <Route path="about" element={<About />} />
+        <Route path="admin/slider" element={<Slider />} />
+        <Route path="admin/gallery" element={<GalleryConsole />} />
         <Route path="gallery/gallery-view" element={<GalleryView />} />
       </Routes>
     </AnimatePresence>

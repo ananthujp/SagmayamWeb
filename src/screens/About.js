@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import gLink from "../Functions/Functions";
 import { ArrowLeftOnRectangleIcon, HomeIcon } from "@heroicons/react/24/solid";
 import { useNavigate } from "react-router-dom";
+import { BackButton, HomeButton } from "../Nav/buttons";
 function About() {
   const navigate = useNavigate();
   return (
@@ -25,20 +26,14 @@ function About() {
       ))}
       <div className="md:max-w-2xl lg:max-w-4xl  max-w-md flex items-center flex-col mx-auto ">
         <div className="flex flex-row items-center w-full justify-between ">
-          <HomeIcon
-            onClick={() => navigate(-1)}
-            className="w-8 cursor-pointer hover:text-green-400  text-[#6f9e27]"
-          />
+          <HomeButton />
           <div className="flex flex-col items-center ">
             <h1 className="mt-4 text-sm font-black font-mont ">sagmayam</h1>
             <h1 className="mb-4 text-4xl font-black font-mont border-x-4 px-4 border-blue-400">
               About
             </h1>
           </div>
-          <ArrowLeftOnRectangleIcon
-            onClick={() => navigate(-1)}
-            className="w-8 cursor-pointer hover:text-red-400  text-[#ca1c25]"
-          />
+          <BackButton />
         </div>
         <h1 className="mb-4 text-sm text-justify font-light font-mont ">
           Welcome to the heart and soul of Malayali camaraderie at the esteemed

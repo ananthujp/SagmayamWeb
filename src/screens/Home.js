@@ -11,7 +11,9 @@ import {
   XCircleIcon,
 } from "@heroicons/react/24/solid";
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { collection, getDocs } from "firebase/firestore";
+import { db } from "../firebase";
 
 function Home() {
   const [view, setView] = useState(null);
@@ -37,7 +39,18 @@ function Home() {
       hash: ["#iitgn", "#art"],
     },
   ];
-
+  const [slide, setSlider] = useState();
+  useEffect(() => {
+    getDocs(collection(db, "slider")).then((items) =>
+      setSlider(
+        items.docs.map((item) => ({
+          label: item.data().label,
+          img: item.data().img,
+          hash: item.data().hash,
+        }))
+      )
+    );
+  }, []);
   const InfiniteLoopSlider = ({ children, duration }) => {
     return (
       <motion.div
@@ -120,17 +133,17 @@ function Home() {
             <div className="bg-white w-full h-full flex flex-col items-center overflow-y-auto p-4">
               <h1 className="font-mont text-xs font-bold ">Sagmayam</h1>
               <h1 className="font-mont text-2xl font-bold border-x-4 px-4 border-red-400 ">
-                {slider[view].label}
+                {slide[view].label}
               </h1>
               <img
-                src={slider[view].img}
+                src={slide[view].img}
                 alt=""
                 className="w-full mt-6 mb-3 rounded-md border border-dashed border-gray-400 p-2"
               />
               <div className="flex flex-row ml-0 mr-auto">
-                {slider[view].hash.map((item) => (
+                {slide[view].hash.map((item) => (
                   <h1 className="text-sm -mt-1 font-light bg-gray-100 rounded-sm p-0.5 border border-dashed border-slate-300 mr-2">
-                    {item}&nbsp;
+                    #{item}&nbsp;
                   </h1>
                 ))}
               </div>
@@ -153,7 +166,7 @@ function Home() {
         }}
         className="relative w-full h-4/6 flex"
       >
-        <div className="flex flex-row mx-4 bg-[#FFD07D] w-full items-center justify-between">
+        <div className="flex z-100 flex-row mx-4 bg-[#FFD07D] w-full items-center justify-between">
           <div>
             {menu_right.map((item, i) => (
               <Link key={`menu.right.${i}`} to={item.link}>
@@ -236,7 +249,7 @@ function Home() {
           alt=""
         />
         <motion.div
-          className="absolute transform bottom-0 -mb-3 left-0 right-0 mx-auto w-full"
+          className="absolute pointer-events-none transform bottom-0 -mb-3 left-0 right-0 mx-auto w-full"
           initial={{ opacity: 0, translateX: -window.innerWidth / 8 }}
           animate={{
             opacity: 1,
@@ -356,8 +369,8 @@ function Home() {
         />
 
         <div className="h-full -mt-12 w-[80%] overflow-hidden mx-auto my-auto">
-          <InfiniteLoopSlider key={0} duration={slider.length * 4}>
-            {slider.map((item, i) => (
+          <InfiniteLoopSlider key={0} duration={slide?.length * 4}>
+            {slide?.map((item, i) => (
               <HomeCard
                 label={item.label}
                 hash={item.hash}
