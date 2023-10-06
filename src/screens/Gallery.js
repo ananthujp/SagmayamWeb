@@ -121,6 +121,7 @@ function Gallery() {
               </motion.div>
               {item.photos?.slice(0, 3).map((item2, i) => (
                 <motion.img
+                  key={`gallery.img${j}.${i}`}
                   initial={{ opacity: 0 }}
                   animate={{
                     opacity: 1,

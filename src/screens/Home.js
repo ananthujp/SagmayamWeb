@@ -17,28 +17,6 @@ import { db } from "../firebase";
 
 function Home() {
   const [view, setView] = useState(null);
-  const slider = [
-    {
-      label: "Onam",
-      img: "https://cdn.zeebiz.com/sites/default/files/styles/zeebiz_850x478/public/2022/09/04/198455-onam-ptii.jpg?itok=Ptar1O3B",
-      hash: ["#iitgn", "#art"],
-    },
-    {
-      label: "Kathakali",
-      img: "https://dancepechance.org/wp-content/uploads/2021/12/Kottakkal_Nandakumaran_Nair_Performing_kathakali.jpg",
-      hash: ["#iitgn", "#art"],
-    },
-    {
-      label: "Kalaripayattu",
-      img: "https://www.keralatourism.org/images/artforms/large/kalaripayattu20131111114353_27_1.jpg",
-      hash: ["#iitgn", "#art"],
-    },
-    {
-      label: "ChendaMelam",
-      img: "https://i.pinimg.com/originals/83/15/17/831517686f16ccc58c5430a8ca6a4ac0.jpg",
-      hash: ["#iitgn", "#art"],
-    },
-  ];
   const [slide, setSlider] = useState();
   useEffect(() => {
     getDocs(collection(db, "slider")).then((items) =>
@@ -142,8 +120,11 @@ function Home() {
                 className="w-full mt-6 mb-3 rounded-md border border-dashed border-gray-400 p-2"
               />
               <div className="flex flex-row ml-0 mr-auto">
-                {slide[view].hash.map((item) => (
-                  <h1 className="text-sm -mt-1 font-light bg-gray-100 rounded-sm p-0.5 border border-dashed border-slate-300 mr-2">
+                {slide[view].hash.map((item, i) => (
+                  <h1
+                    key={`home.slider.hash${i}`}
+                    className="text-sm -mt-1 font-light bg-gray-100 rounded-sm p-0.5 border border-dashed border-slate-300 mr-2"
+                  >
                     #{item}&nbsp;
                   </h1>
                 ))}

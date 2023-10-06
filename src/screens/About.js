@@ -10,6 +10,7 @@ function About() {
     <motion.div className="relative flex items-center flex-col bg-white w-full h-screen">
       {["bg-green-400", "bg-red-400", "bg-[#73A6FF]"].map((item, i, arr) => (
         <motion.div
+          key={`anim.ab${i}`}
           initial={{ minHeight: "100%", width: "100%" }}
           animate={{
             minHeight: "0%",

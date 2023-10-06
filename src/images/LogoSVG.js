@@ -2,9 +2,11 @@ import * as React from "react";
 import { AnimatePresence, delay, motion } from "framer-motion";
 import { useEffect } from "react";
 import { useState } from "react";
+import useReducer from "../Context";
 
-function LogoSVG({ loadi, setad }) {
-  const [load, setLoad] = useState(loadi);
+function LogoSVG() {
+  const { load, setLoad } = useReducer();
+  const [loadi, setLoadi] = useState(load);
   const teeth = {
     fade: {
       opacity: [0, 1, 0],
@@ -30,17 +32,17 @@ function LogoSVG({ loadi, setad }) {
   };
 
   useEffect(() => {
-    setTimeout(() => setLoad(true), 4000);
-    setTimeout(() => setad(true), 7400);
+    setTimeout(() => setLoadi(true), 4000);
+    setTimeout(() => setLoad(true), 7400);
   }, []);
   return (
     <AnimatePresence>
-      {!loadi ? (
+      {!load ? (
         <motion.div
           className="w-full h-screen"
           initial={{ opacity: 1, backgroundColor: "#210002" }}
           animate={
-            load
+            loadi
               ? {
                   backgroundColor: ["#210002", "#73A6FF"],
                   transition: { duration: 2, delay: 1 },
@@ -51,7 +53,7 @@ function LogoSVG({ loadi, setad }) {
           <motion.svg
             initial={{ opacity: 1 }}
             animate={
-              load
+              loadi
                 ? {
                     scale: [0.5, 0.5, 0.5],
                     translateY: [0, 90, 90],
@@ -151,7 +153,7 @@ function LogoSVG({ loadi, setad }) {
                 <motion.g
                   initial={{ rotateZ: -90 }}
                   animate={
-                    load
+                    loadi
                       ? {
                           rotateZ: 0,
                           transition: {
@@ -170,7 +172,7 @@ function LogoSVG({ loadi, setad }) {
                 >
                   <motion.path
                     animate={
-                      load
+                      loadi
                         ? { opacity: 1 }
                         : {
                             opacity: [0, 1, 0],
@@ -190,7 +192,7 @@ function LogoSVG({ loadi, setad }) {
                   />
                   <motion.path
                     animate={
-                      load
+                      loadi
                         ? { opacity: 1 }
                         : {
                             opacity: [0, 1, 0],
@@ -208,7 +210,7 @@ function LogoSVG({ loadi, setad }) {
                   />
                   <motion.path
                     animate={
-                      load
+                      loadi
                         ? { opacity: 1 }
                         : {
                             opacity: [0, 1, 0],
@@ -226,7 +228,7 @@ function LogoSVG({ loadi, setad }) {
                   />
                   <motion.path
                     animate={
-                      load
+                      loadi
                         ? { opacity: 1 }
                         : {
                             opacity: [0, 1, 0],
@@ -244,7 +246,7 @@ function LogoSVG({ loadi, setad }) {
                   />
                   <motion.path
                     animate={
-                      load
+                      loadi
                         ? { opacity: 1 }
                         : {
                             opacity: [0, 1, 0],
@@ -262,7 +264,7 @@ function LogoSVG({ loadi, setad }) {
                   />
                   <motion.path
                     animate={
-                      load
+                      loadi
                         ? { opacity: 1 }
                         : {
                             opacity: [0, 1, 0],
@@ -280,7 +282,7 @@ function LogoSVG({ loadi, setad }) {
                   />
                   <motion.path
                     animate={
-                      load
+                      loadi
                         ? { opacity: 1 }
                         : {
                             opacity: [0, 1, 0],
@@ -298,7 +300,7 @@ function LogoSVG({ loadi, setad }) {
                   />
                   <motion.path
                     animate={
-                      load
+                      loadi
                         ? { opacity: 1 }
                         : {
                             opacity: [0, 1, 0],
@@ -316,7 +318,7 @@ function LogoSVG({ loadi, setad }) {
                   />
                   <motion.path
                     animate={
-                      load
+                      loadi
                         ? { opacity: 1 }
                         : {
                             opacity: [0, 1, 0],
@@ -334,7 +336,7 @@ function LogoSVG({ loadi, setad }) {
                   />
                   <motion.path
                     animate={
-                      load
+                      loadi
                         ? { opacity: 1 }
                         : {
                             opacity: [0, 1, 0],
@@ -352,7 +354,7 @@ function LogoSVG({ loadi, setad }) {
                   />
                   <motion.path
                     animate={
-                      load
+                      loadi
                         ? { opacity: 1 }
                         : {
                             opacity: [0, 1, 0],
@@ -370,7 +372,7 @@ function LogoSVG({ loadi, setad }) {
                   />
                   <motion.path
                     animate={
-                      load
+                      loadi
                         ? { opacity: 1 }
                         : {
                             opacity: [0, 1, 0],
@@ -388,7 +390,7 @@ function LogoSVG({ loadi, setad }) {
                   />
                   <motion.path
                     animate={
-                      load
+                      loadi
                         ? { opacity: 1 }
                         : {
                             opacity: [0, 1, 0],
@@ -406,7 +408,7 @@ function LogoSVG({ loadi, setad }) {
                   />
                   <motion.path
                     animate={
-                      load
+                      loadi
                         ? { opacity: 1 }
                         : {
                             opacity: [0, 1, 0],
@@ -424,7 +426,7 @@ function LogoSVG({ loadi, setad }) {
                   />
                   <motion.path
                     animate={
-                      load
+                      loadi
                         ? { opacity: 1 }
                         : {
                             opacity: [0, 1, 0],
@@ -442,7 +444,7 @@ function LogoSVG({ loadi, setad }) {
                   />
                   <motion.path
                     animate={
-                      load
+                      loadi
                         ? { opacity: 1 }
                         : {
                             opacity: [0, 1, 0],
@@ -463,7 +465,7 @@ function LogoSVG({ loadi, setad }) {
                 <motion.g
                   initial={{ translateY: -230 }}
                   animate={
-                    load
+                    loadi
                       ? {
                           scale: 1,
                           translateY: [-230, 0],
@@ -552,7 +554,7 @@ function LogoSVG({ loadi, setad }) {
                 <motion.path
                   variants={pathAnim}
                   initial="initial"
-                  animate={!load ? "initial" : "animate"}
+                  animate={!loadi ? "initial" : "animate"}
                   id="_x3C_Compound_Path_x3E_"
                   d="M147.3 622c2.3-4.6.7-8.3-4.7-11.1 2.3-4.3 3.5-6.5 5.8-10.8 8.7 4.3 18.3 11.3 19.7 21.7.3 2.6-.2 5.2-1.3 7.9-6.7 15.7-13.4 31.5-20.1 47.3-4.5 10.2-18.1 9.8-27.2 7.3-4.2-1-9.5-3.1-15.8-6.5-6.4-3.4-11.8-8.6-16.2-15.4-4.5-6.9-5-12.9-1.9-17.7 9.3-14.3 18.5-28.7 27.8-43 2.8-4.3 2.1-7.8-2-10.6-4.2-2.8-7.9-2.6-11.3.9-13.5 18.8-26.9 37.6-40.4 56.3-7.9-5.6-11.8-8.6-19.4-14.7 14.6-18 29.2-36 43.7-54 2.5-4.2 1.3-8.2-3.5-12.3-4.8-4.2-8.9-4.5-12.4-.6l-33.6 36.9c-3.5 3.9-2.7 8.2 2.7 12.8-3.2 3.6-4.7 5.4-7.8 9-8.9-8.7-26.3-25.4-13.6-38.4 12.1-11.7 24.3-23.5 36.5-35.3 7.4-7.1 18.5-4.7 26.6-.2 3.2 1.6 7.2 4.6 12 8.6 4.9 4.1 7.4 8.6 7.7 13.8 5.3-.8 10.5.7 15.9 4.5s9.3 6.9 11.5 9.5c2.1 2.7 3.8 5.4 5.1 8.3 2.6 6.3 2.8 11.8.1 16.6-8.1 14.5-16.3 28.9-24.4 43.3-2.9 5-1.2 9.3 5.2 12.7 6.3 3.4 10.8 2.4 13.3-2.7 7.3-14.7 14.7-29.4 22-44.1z"
                   className=""
@@ -560,7 +562,7 @@ function LogoSVG({ loadi, setad }) {
                 <motion.path
                   variants={pathAnim}
                   initial="initial"
-                  animate={!load ? "initial" : "animate"}
+                  animate={!loadi ? "initial" : "animate"}
                   id="_x3C_Compound_Path_x3E__00000143576994881888380760000004760125833377919659_"
                   d="M264.4 641.4c-.7-.6-1.3-1.2-2-1.7-4.4-3.4-8.8-5.6-13.4-6.3-5.2-.9-9.6-1.2-13.1-.9-9 .3-19.9 3.6-22.6 13.4-4.3 16.1-8.5 32.2-12.8 48.3-1.5 5.6-5.5 7.6-12 5.7-6.5-1.9-9-5.5-7.4-10.4 5.1-16.1 10.3-32.1 15.5-48.2 1.6-5 5.8-6.4 12.6-4.5 1.4-4.6 2-6.9 3.4-11.6-12-3.7-29.4-6.2-35.2 8.1-6.3 16.4-12.7 32.8-19 49.2-2 5.1-.5 10.6 4.8 16.2 5.4 5.6 11.5 9.5 18.1 11.5 6.7 2.1 12.2 3.1 16.6 3.2 9.5.8 22.9-1.5 25.3-12.6 3.3-16.7 6.7-33.3 10.1-50 1.1-5.1 4.5-7.1 10.4-6.1 5.7 1 8.2 3.9 7.6 8.7v.4c-.1.9-.3 1.9-.4 2.8 0 .2 0 .4-.1.5l-3 64.8c.1 0 .2 0 .3.1 9.5-1 18.2-5 18.9-15.2 1.5-16.9 3.1-33.7 4.6-50.6.5-5.5-2.1-10.3-7.2-14.8z"
                   className=""
@@ -569,7 +571,7 @@ function LogoSVG({ loadi, setad }) {
                 <motion.path
                   variants={pathAnim}
                   initial="initial"
-                  animate={!load ? "initial" : "animate"}
+                  animate={!loadi ? "initial" : "animate"}
                   id="_x3C_Compound_Path_x3E__00000077311182375197165010000009574841042108519590_"
                   d="M341.2 715.9c-31 5.1-61.7 7.1-93.1 6.1-.1-.1-.2-.1-.3-.1l3-64.8c.1-.1.1-.3.1-.5.1-1.1.2-2.1.4-3.1v-.1c1.5-6 5.7-10.6 11.1-13.7 2-1.1 4.2-2 6.4-2.6 3.3-1.2 6.8-1.8 10.6-1.9 8.3-.3 12.4-.6 20.7-1.4 9.9-1.2 19.9 1.9 26.1 10.1 1.8 2.5 3 5.2 3.6 8.2 3.8 21.3 7.6 42.5 11.4 63.8zm-63.8-49.7c-2.3-.1-4.2.5-5.7 2 .1 14.1.3 28.3.5 42.4 2.3 0 3.5 0 5.8-.1 2.1-1.2 3.3-3.1 3.6-5.6.7-9.9 1.4-19.9 2-29.8.3-5.7-1.8-8.6-6.2-8.9zm38.1 41.7c-2-16.7-4-33.3-5.9-50-.6-5-2.4-8-5.4-9.1-2.9-1.1-5.3-1.6-7-1.4-6.2.5-9.2.7-15.4.9-3.5.2-5.8 1.1-6.8 3-1.1 1.8-1.8 3.2-2.3 4.2 1.8-1 5.1-1.5 9.8-1.7 4.7-.2 9.2 1.6 13.6 5.4 4.5 3.7 6.9 8.4 6.8 14.2-.2 10.2-.5 20.4-.8 30.6 0 2.1-.8 3.8-2.3 5.3 6.3-.5 9.4-.7 15.7-1.4z"
                   className=""
@@ -577,7 +579,7 @@ function LogoSVG({ loadi, setad }) {
                 <motion.path
                   variants={pathAnim}
                   initial="initial"
-                  animate={!load ? "initial" : "animate"}
+                  animate={!loadi ? "initial" : "animate"}
                   id="_x3C_Compound_Path_x3E__00000062170611768140546290000012860906019315575727_"
                   d="M429.5 685.1c-2.1 4.1-5.3 7-9.3 8.6-4.1 1.6-7.3 2.7-9.6 3.6-8 2.9-12.1 4.3-20.3 6.8-12.2 4.3-26.7 2.9-36.3-6.3-2.5-2.6-4.1-5.5-4.8-8.8-3-14.3-6-28.5-9-42.7-2.1-10 5.5-18.2 13.5-22.8 3-1.9 7.2-3.7 12.6-5.3 5.3-1.7 10.5-1.2 15.6 1.5 1.7-5.1 5.3-8.7 10.9-11 5.6-2.4 10.1-3.8 13.5-4.2 3.3-.4 6.5-.3 9.6.2 6.7 1.3 11.4 4.3 14 9.3 6.9 13.2 13.9 26.4 20.8 39.6 2.7 5.2 1.7 10.2-3.4 15.1 5.4-2.7 8-4.1 13.3-6.9 6.7-3.7 8.8-7.9 6.1-12.4-8.1-14-16.1-28-24.2-42-2.6-4.5-6.6-5.1-12-2.2-2.3-4.3-3.5-6.4-5.8-10.7 8.3-4.8 18.9-8 28.1-3.8 2.4 1.1 4.4 2.9 5.9 5.3 8.9 13.7 17.9 27.3 26.9 40.9 6 9.4-.5 20.4-7.6 27-3.1 3-7.1 5.9-12.2 8.6-6 3.3-9 4.8-15 7.8-10.1 4.9-17.3 6.3-21.3 4.8zM360 640.9c3.9 14.1 7.8 28.3 11.7 42.4 1.5 5.4 4.1 8.4 7.8 9 3.7.6 6.6.6 8.6 0 6-1.9 8.9-2.8 14.8-4.9-5.2.1-8.5-2.1-10-6.3-5.1-15.4-10.2-30.8-15.3-46.1-1.5-4.6-5.1-5.9-10.9-4.1-5.8 1.7-8 5-6.7 10zm65.7 35.2c5.6-4 7.3-8.2 5.3-12.4L412.1 622c-2.2-4.7-5.7-5.9-10.6-3.8-4.9 2.1-6.5 5.3-4.7 9.8 5.7 14.3 11.5 28.6 17.2 42.9 1.9 4.9 5.8 6.7 11.7 5.2z"
                   className=""
@@ -585,7 +587,7 @@ function LogoSVG({ loadi, setad }) {
                 <motion.path
                   variants={pathAnim}
                   initial="initial"
-                  animate={!load ? "initial" : "animate"}
+                  animate={!loadi ? "initial" : "animate"}
                   id="_x3C_Compound_Path_x3E__00000085222137539393287990000005800587592578214052_"
                   d="M554.8 583c4.2 4.1 5 9.2 2.4 15.4-9.5 17.9-21 31.7-41.3 37.6-8.8 2.3-14.9.8-18.3-4.1-6.1-8.7-12.2-17.3-18.3-26-6.2-9.2.5-20.4 6.9-27.3 2.7-3 6.2-6.4 10.7-10.4 4.5-3.9 10.3-7 17.6-9.5 7.4-2.5 13.2-1.9 17.4 2.1 7.6 7.4 15.2 14.8 22.9 22.2zm-38.4 33.5c3.3 4 8.3 3.3 15-2.4s8.2-10.7 4.7-14.5c-6.6-7.3-13.2-14.6-19.9-21.9-3.5-3.8-8.1-3-14.1 2.1-5.9 5.1-7.4 9.5-4.2 13.5 6.2 7.7 12.4 15.5 18.5 23.2z"
                   className=""

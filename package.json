@@ -1,6 +1,7 @@
 {
   "name": "sagmayam",
   "version": "0.1.0",
+  "homepage": ".",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.11.1",
@@ -15,6 +16,7 @@
     "dayjs": "^1.11.10",
     "firebase": "^10.4.0",
     "framer-motion": "^10.16.4",
+    "gh-pages": "^6.0.0",
     "heroicons": "^2.0.18",
     "lightbox.js-react": "^0.8.7",
     "parallax-js": "^3.1.0",
@@ -31,6 +33,8 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "predeploy": "bun run build",
+    "deploy": "gh-pages -d deploy",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",

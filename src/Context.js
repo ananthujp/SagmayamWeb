@@ -4,6 +4,8 @@ const WrapContext = createContext({});
 
 export const AuthProvider = ({ children }) => {
   const [login, setLogin] = useState(false);
+  const [load, setLoad] = useState(false);
+
   const emails = [
     "sagmayam@gmail.com",
     "prasanth.n@iitgn.ac.in",
@@ -19,8 +21,10 @@ export const AuthProvider = ({ children }) => {
     () => ({
       login,
       setLogin,
+      load,
+      setLoad,
     }),
-    [login]
+    [login, load]
   );
   return (
     <WrapContext.Provider value={memoedValue}>{children}</WrapContext.Provider>

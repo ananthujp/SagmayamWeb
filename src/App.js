@@ -9,8 +9,9 @@ import Home from "./screens/Home";
 import Slider from "./admin/slider";
 import GalleryConsole from "./admin/gallery";
 import Admin from "./admin/admin";
+import useReducer from "./Context";
 function App() {
-  const [load, setLaad] = useState(false);
+  const { load } = useReducer();
 
   const location = useLocation();
   return (
@@ -18,13 +19,7 @@ function App() {
       <Routes location={location} key={location.pathname}>
         <Route
           path="/"
-          element={
-            load ? (
-              <Home />
-            ) : (
-              <LogoSVG key={`loadin_anim.key`} loadi={load} setad={setLaad} />
-            )
-          }
+          element={load ? <Home /> : <LogoSVG key={`loadin_anim.key`} />}
         />
         <Route path="gallery" element={<Gallery />} />
         <Route path="about" element={<About />} />

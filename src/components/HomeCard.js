@@ -9,7 +9,11 @@ function HomeCard({ label, img, hash, i, view }) {
       exit={{ opacity: 0, transition: { duration: 0.3, delay: i * 0.5 } }}
       className="relative my-auto cursor-pointer h-24 md:h-32 translate-y-4 transition-all duration-1000 filter grayscale-[80%] hover:grayscale-0 border-white border  aspect-video"
     >
-      <img className="aspect-video p-2 shadow-inner" src={img} alt="" />
+      <img
+        className="aspect-video p-2 w-auto h-auto object-cover  shadow-inner"
+        src={img}
+        alt=""
+      />
 
       <div className="absolute bg-gradient-to-b from-transparent to-black/80 w-[94%] h-1/4 m-1.5 bottom-0"></div>
       <div className="flex flex-row transform -mt-10 ml-4 text-left  text-white text-sm font-mont">
